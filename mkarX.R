@@ -7,7 +7,7 @@
 # steps: how many steps to forecast
 
 EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
-                             tau=0.5,resid=1,aclag=10,steps=12,validation=T,graph=T,print=T,check=F,link="logit")
+                      tau=0.5,resid=1,aclag=10,steps=12,validation=T,graph=T,print=T,check=F,link="logit")
 {
   if(validation==T){
     n <- length(y)-steps 
@@ -57,7 +57,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   linkinv <- link$linkinv
   mu.eta <-  link$mu.eta
   diflink <- link$diflink
- 
+  
   #função densidade de probabilidade modified kumaraswamy
   dmk <- Vectorize(function(y,alpha,beta,log = FALSE){
     critical.y=exp(alpha-alpha/y)
@@ -72,7 +72,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
       if(density[i]<.Machine$double.eps) density[i]<-.Machine$double.eps
       if(density[i]>.Machine$double.xmax) density[i]<-.Machine$double.xmax
     }
-   logden <- log(density)
+    logden <- log(density)
     val <- ifelse(log, logden, exp(logden)) 
     return(val)
   }) #função Murilo
@@ -175,7 +175,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
       if(is.na(mu[i])) mu[i]<-.Machine$double.eps
       if(mu[i]<.Machine$double.eps) mu[i]<-.Machine$double.eps
       if(mu[i]>(0.9999999)) mu[i]<-0.9999999#1-.Machine$double.eps
-
+      
       critical[i]<-(alpha-alpha/mu[i])
       if(is.na(critical[i])) critical[i]<- -.Machine$double.eps
       if(is.nan(critical[i])){critical[i]=-36.04365}
@@ -294,14 +294,14 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
     pp <- deta.dphi[(m+1):n,]
     
     ymstar <- matrix((mustar),ncol=1)
- 
+    
     Ubeta0 <-  t(mM0) %*% mT %*% ymstar
     Ubeta <-  t(mM) %*% mT %*% ymstar
     Uphi <-    t(pp) %*% mT %*% ymstar
     
     ##############################################################################
     ##### START DERIVATIVE FROM LOG LIKELIHOOD WITH RESPECT TO alpha
- 
+    
     num1<-(mu-1)*exp(alpha)*log(1-tau)*critical.ly
     den1<- mu*(exp(alpha/mu)-exp(alpha))*(den.cr)^2
     num2.part1<-(y1-1)*critical.y
@@ -312,7 +312,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
     
     ##### END DERIVATIVE FROM LOG LIKELIHOOD WITH RESPECT TO alpha
     ##############################################################################
-  
+    
     return(c(Ubeta0,Ubeta,Uphi,Ualpha))
   }#end score
   
@@ -364,7 +364,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
     z$RMC=1
     return(z)
   }
- 
+  
   #library(rootSolve)
   #print("verificando derivadas")
   #print(gradient(score,opt2$par))
@@ -399,7 +399,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   errorhat <- rep(0,n) # E(error)=0
   etahat <- rep(NA,n)
   muhat0<- rep(NA,n)
-
+  
   critical<-c()
   den.cr<-c()
   
@@ -460,7 +460,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
         A[i,j] <- (ynew[i+m-ar[j]]-X[i+m-ar[j],2:ncol(X)]%*%as.matrix(beta))
       }
     }    
-  
+    
     B0 <- matrix(rep(NA,(n-m)),ncol=1)#intercept
     for(i in 1:(n-m))
     {
@@ -611,7 +611,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
       for(j in 1:p1){
         for(i in 1:k){
           
-            KBp[i,j] <- -(t(mM[,i])%*%mV%*%(mT^2)%*%pp[,j] + t(mM[,i])%*%mV0%*%mT2%*%pp[,j] + t(vI)%*%mV0%*%mT%*%as.matrix(Bp[i,j,]))
+          KBp[i,j] <- -(t(mM[,i])%*%mV%*%(mT^2)%*%pp[,j] + t(mM[,i])%*%mV0%*%mT2%*%pp[,j] + t(vI)%*%mV0%*%mT%*%as.matrix(Bp[i,j,]))
           
         }
       }
@@ -657,14 +657,14 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   # print(round(sum(abs(K+opt2$hessian)),2))
   # print("soma diferença hessiana numérica otimização analítica")
   # print(round(sum(abs(K+opt$hessian)),2))
-
+  
   Ksolve<- tryCatch(solve(K), error = function(e) return("error"))
   if(Ksolve[1] == "error")
   {z$RMC=1#used at Monte-Carlo simulation for discard from the sample
   warning("Analytic Observed Information Matrix is not positive semi-definite")
   return(z)#if Analytic Observed Information Matrix is not positive semi-definite, do not calculate
   }else{sol=try(solve(K))}
-
+  
   v<-diag(sol)#Variância assintótica dos esimadores
   for (i in 1:length(v))
   {
@@ -696,7 +696,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   z$mbic <- -2*(z$loglik)*(n/(n-m))+(length(opt$par))*log(n)
   result2<-matrix(round(c(z$loglik,z$maic,z$mbic),4),nrow=3,ncol=1)
   rownames(result2)<-c("Log-likelihood","AIC","BIC")
-
+  
   ###START error metrics
   mae<-sum(abs(y[(m+1):n]-z$fitted[(m+1):n]))/(n-m)
   
@@ -750,24 +750,39 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   z$fitm2=ym2
   z$fit.all <- ts(c(ym2,muhat),start=start(y),frequency=frequency(y))
   if(steps!=0){
-  #### out of sample forecast
-  ynew_prev <- c(ynew,rep(NA,steps))
-  y_prev <- c(z$fitted,rep(NA,steps))
-  X_prev<-matrix(rep(1,(n+steps)), nrow=(n+steps), ncol=1, byrow=F)
-  ntotal<-n+steps
-  X_prev <- matrix(c(rep(1,ntotal),exvar), nrow=ntotal, ncol=(k+1),byrow = F)
-  
-  for(i in 1:steps)
-  {
-    ynew_prev[n+i] <- X_prev[n+i,1]*z$beta0 + X_prev[n+i,2:ncol(X_prev)]%*%as.matrix(z$beta) + sum(phi*(ynew_prev[n+i-ar]-X_prev[n+i-ar,2:ncol(X_prev)]%*%as.matrix(z$beta)
-    ) ) 
-    y_prev[n+i] <- linkinv(ynew_prev[n+i])
-    errorhat[n+i] <- 0 # residuals on the original scale y-mu 
-  }
-  
-  z$forecast <- ts(c(rep(NA,n),y_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
-  
-  fittedplusout_forecast <-  ts(c(rep(NA,m),muhat,y_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
+    #### out of sample forecast
+    ynew_prev <- c(ynew,rep(NA,steps))
+    y_prev <- c(z$fitted,rep(NA,steps))
+    X_prev<-matrix(rep(1,(n+steps)), nrow=(n+steps), ncol=1, byrow=F)
+    ntotal<-n+steps
+    X_prev <- matrix(c(rep(1,ntotal),exvar), nrow=ntotal, ncol=(k+1),byrow = F)
+    
+    for(i in 1:steps)
+    {
+      ynew_prev[n+i] <- X_prev[n+i,1]*z$beta0 + X_prev[n+i,2:ncol(X_prev)]%*%as.matrix(z$beta) + sum(z$phi*(ynew_prev[n+i-ar]-X_prev[n+i-ar,2:ncol(X_prev)]%*%as.matrix(z$beta)
+      ) ) 
+      y_prev[n+i] <- linkinv(ynew_prev[n+i])
+      errorhat[n+i] <- 0 # residuals on the original scale y-mu 
+    }
+    
+    z$forecast <- ts(c(rep(NA,n),y_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
+    
+    fittedplusout_forecast <-  ts(c(rep(NA,m),muhat,y_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
+    #### rolling window forecast
+    gy_prev <- c(rep(NA,n+steps))
+    gy<-linkfun(y)
+    yr_prev <- c(z$fitted,rep(NA,steps))
+    
+    for(i in 1:steps)
+    {
+      gy_prev[n+i] <- X_prev[n+i,1]*z$beta0 + X_prev[n+i,2:ncol(X_prev)]%*%as.matrix(z$beta) + sum(z$phi*(gy[n+i-ar]-X_prev[n+i-ar,2:ncol(X_prev)]%*%as.matrix(z$beta)
+      ) ) 
+      yr_prev[n+i] <- linkinv(gy_prev[n+i])
+      errorhat[n+i] <- 0 # residuals on the original scale y-mu 
+    }
+    
+    z$rollingforecast <- ts(c(rep(NA,n),yr_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
+    
   }
   
   ###########################
@@ -789,7 +804,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
     if(critical[i] < -36.04365) critical[i] <- -36.04365
     den.cr[i]=log(1-exp(critical[i]))
     if(is.nan(den.cr[i])){den.cr[i]=-36.04365}
-   }
+  }
   z$resid1 <- as.vector(qnorm(pmk(y[(m+1):n],alpha, log(1-tau)/den.cr[(m+1):n],log.p = FALSE ) ))
   #deviance residuals
   l_tilde <- (dmk(y[(m+1):n], alpha, log(1-tau)/log(1-exp(alpha-alpha/y[(m+1):n])), log = TRUE))#y[(m+1):n] where was mu
@@ -806,7 +821,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   z$dof.dev=(n-m-p1)#desconsidera intercepto do eta e alpha da distribuição
   z$p_deviance <- 1 - pchisq(z$deviance, z$dof.dev)
   z$deviance.star <- 2*sum(dt)*n/(n-m)
- 
+  
   mresult<-matrix(round(c(z$loglik,z$maic,z$mbic,z$deviance),4),nrow=4,ncol=1)
   rownames(mresult)<-c("Log-likelihood","AIC","BIC","Deviance")
   colnames(mresult)<-c("")
@@ -846,7 +861,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
             ,lty=3,col=1)
     }
     dev.off()
-   pdf("resid_v_fitted.pdf",width=5, height=4)
+    pdf("resid_v_fitted.pdf",width=5, height=4)
     {
       par(mfrow=c(1,1))
       par(mar=c(2.8, 2.7, 1, 1)) 
@@ -871,7 +886,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
       lines(c(-0.2,1.2),c(-0.2,1.2),lty=2)
     }
     dev.off()
-   pdf("resid_density.pdf",width=5, height=4)
+    pdf("resid_density.pdf",width=5, height=4)
     {
       par(mfrow=c(1,1))
       par(mar=c(1.5, 2.7, 1, 1)) 
@@ -883,7 +898,7 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
              pt.bg="white", lty=c(1,2), bty="n")
     }
     dev.off()
-     pdf("resid_FAC.pdf",width=5, height=4)
+    pdf("resid_FAC.pdf",width=5, height=4)
     {
       par(mfrow=c(1,1))
       par(mar=c(2.8, 2.7, 1, 1)) 
@@ -936,35 +951,35 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
     }
     dev.off()
     if(steps!=0){
-    pdf("fittedforecast.pdf",width=5, height=4)
-    {
-      fim<-end(y)[1]+end(y)[2]/12
-      par(mfrow=c(1,1))
-      par(mar=c(2.8, 2.7, 1, 1)) # margens c(baixo,esq,cima,direia)
-      par(mgp=c(1.7, 0.45, 0))
-      plot(y_prev,type="l",col="blue",lty=2, ylim=c(min(y),max(y)),ylab="Serie",xlab="Time")
-      abline(v=fim,lty=2)
-      abline(v=n,lty=2)
-      lines(as.vector(y))
-      legend("bottomleft",c("Observed data","Fitted and forecast values"),#pch=vpch,
-             pt.bg="white", lty=c(1,2), bty="n",col=c(1,"blue"))
-    }
-    dev.off()
-    
-    pdf("forecast.pdf",width=5, height=4)
-    {
-      fim<-end(y)[1]+end(y)[2]/12
-      par(mfrow=c(1,1))
-      par(mar=c(2.8, 2.7, 1, 1)) # margens c(baixo,esq,cima,direia)
-      par(mgp=c(1.7, 0.45, 0))
-      plot(y_prev[(n+1):(n+steps)],type="l",col="blue",lty=2, ylim=c(min(y),max(y)),ylab="Serie",xlab="Time")
-      abline(v=fim,lty=2)
-      abline(v=n,lty=2)
-      lines(as.vector(y[(n+1):(n+steps)]))
-      legend("bottomleft",c("Observed data","Forecast values"),#pch=vpch,
-             pt.bg="white", lty=c(1,2), bty="n",col=c(1,"blue"))
-    }
-    dev.off()
+      pdf("fittedforecast.pdf",width=5, height=4)
+      {
+        fim<-end(y)[1]+end(y)[2]/12
+        par(mfrow=c(1,1))
+        par(mar=c(2.8, 2.7, 1, 1)) # margens c(baixo,esq,cima,direia)
+        par(mgp=c(1.7, 0.45, 0))
+        plot(y_prev,type="l",col="blue",lty=2, ylim=c(min(y),max(y)),ylab="Serie",xlab="Time")
+        abline(v=fim,lty=2)
+        abline(v=n,lty=2)
+        lines(as.vector(y))
+        legend("bottomleft",c("Observed data","Fitted and forecast values"),#pch=vpch,
+               pt.bg="white", lty=c(1,2), bty="n",col=c(1,"blue"))
+      }
+      dev.off()
+      
+      pdf("forecast.pdf",width=5, height=4)
+      {
+        fim<-end(y)[1]+end(y)[2]/12
+        par(mfrow=c(1,1))
+        par(mar=c(2.8, 2.7, 1, 1)) # margens c(baixo,esq,cima,direia)
+        par(mgp=c(1.7, 0.45, 0))
+        plot(y_prev[(n+1):(n+steps)],type="l",col="blue",lty=2, ylim=c(min(y),max(y)),ylab="Serie",xlab="Time")
+        abline(v=fim,lty=2)
+        abline(v=n,lty=2)
+        lines(as.vector(y[(n+1):(n+steps)]))
+        legend("bottomleft",c("Observed data","Forecast values"),#pch=vpch,
+               pt.bg="white", lty=c(1,2), bty="n",col=c(1,"blue"))
+      }
+      dev.off()
     }
   }#END GRAPHICS
   
@@ -1017,56 +1032,68 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   z$p_friedman=friedman$Pval
   #if the null hipothesis is rejected at the 1% significance level then the series is considered to be seasonal
   
-  
   ########################################################################
   ########################   forecast analysis   ########################
   ########################################################################
   if(steps!=0){
     if(validation==T){
-  ###START FORECAST error metrics
-  maef<-sum(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)]))/(steps)
-  
-  sqf<-rep(NA,steps)
-  
-  for(i in 1:steps)
-  {
-    sqf[i]<-(y[n+i]-y_prev[n+i])^2
-  }  
-  
-  #print((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])^2)
-  msef<-sum(sqf)/steps
-  
-  rmsef<-sqrt(msef)
-  
-  mapef<-sum(abs((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/y[(n+1):(n+steps)])*100)/steps
-  
-  MdRAEf<-median(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/abs(y[(n+1):(n+steps)]-y[(n+1-1):(n+steps-1)]))#seasonal, if not, -1 not -S, If our model’s forecast equals to the benchmark’s forecast then the result is 1. If the benchmarks forecast are better than ours then the result will be above > 1. If ours is better than it’s below 1.
-  
-  MAEnaivef<-sum(abs(y[(n+1+1):(n+steps)]-y[(n+1):(n+steps-1)]))/(steps-1)#seasonal, if not, -1 not -S
-  
-  MASEf<-maef/MAEnaivef #Its value greater than one (1) indicates the algorithm is performing poorly compared to the naïve forecast.
-  
-  MAEnaivef.star<-sum(abs(y[(n+1):(n+steps)]-y[(n+1-1):(n+steps-1)]))/steps
-  MASEf.star<-maef/MAEnaivef.star
-  
-  #Mean directional accuracy
-  sign.yf<-sign(y[(n+1):(n+steps)]-y[(n):(n+steps-1)])
-  sign.ff<-sign(y_prev[(n+1):(n+steps)]-y[(n):(n+steps-1)])
-  MDAf.cont<-0
-  for (i in 1:steps){   
-    if(sign.yf[i]==sign.ff[i]){MDAf.cont<-MDAf.cont+1}  
-  }
-  
-  MDAf<-MDAf.cont/steps
-  
-  MASEf=MASEf.star
-  z$accuracyforecast<-accuracyf<-matrix(round(c(maef,msef,rmsef,mapef,MdRAEf,MASEf,MDAf),4), nrow=1, ncol=7, byrow=T)
-  colnames(z$accuracyforecast) <-colnames(accuracyf) <- c("MAE","MSE","RMSE","MAPE","MdRAE","MASE","MDA")
-  rownames(z$accuracyforecast) <-rownames(accuracyf) <- c("Accuracy forecast")
+      ###START FORECAST error metrics
+      accuracyforecast<-function(y_prev,steps){
+        maef<-sum(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)]))/(steps)
+        
+        sqf<-rep(NA,steps)
+        
+        for(i in 1:steps)
+        {
+          sqf[i]<-(y[n+i]-y_prev[n+i])^2
+        }  
+        
+        #print((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])^2)
+        msef<-sum(sqf)/steps
+        
+        rmsef<-sqrt(msef)
+        
+        mapef<-sum(abs((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/y[(n+1):(n+steps)])*100)/steps
+        
+        MdRAEf<-median(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/abs(y[(n+1):(n+steps)]-y[(n+1-S):(n+steps-S)]))#seasonal, if not, -1 not -S, If our model’s forecast equals to the benchmark’s forecast then the result is 1. If the benchmarks forecast are better than ours then the result will be above > 1. If ours is better than it’s below 1.
+        
+        MAEnaivef<-sum(abs(y[(n+S+1):(n+steps)]-y[(n+1):(n+steps-S)]))/(steps-S)#seasonal, if not, -1 not -S
+        
+        MASEf<-maef/MAEnaivef #Its value greater than one (1) indicates the algorithm is performing poorly compared to the naïve forecast.
+        
+        MAEnaivef.star<-sum(abs(y[(n+1):(n+steps)]-y[(n+1-S):(n+steps-S)]))/steps
+        MASEf.star<-maef/MAEnaivef.star
+        
+        #Mean directional accuracy
+        sign.yf<-sign(y[(n+1):(n+steps)]-y[(n):(n+steps-1)])
+        sign.ff<-sign(y_prev[(n+1):(n+steps)]-y[(n):(n+steps-1)])
+        MDAf.cont<-0
+        for (i in 1:steps){   
+          if(sign.yf[i]==sign.ff[i]){MDAf.cont<-MDAf.cont+1}  
+        }
+        
+        MDAf<-MDAf.cont/steps
+        
+        MASEf=MASEf.star
+        accuracyf<-matrix(round(c(maef,msef,rmsef,mapef,MdRAEf,MASEf,MDAf),4), nrow=1, ncol=7, byrow=T)
+        colnames(accuracyf) <- c("MAE","MSE","RMSE","MAPE","MdRAE","MASE","MDA")
+        rownames(accuracyf) <- c("Accuracy forecast")
+        return(accuracyf)
+      }
+      accuracytraditionalforecast<-accuracyrollingwindow<-matrix(rep(NA,7*steps),nrow=steps, ncol=7, byrow=T)
+      colnames(accuracytraditionalforecast) <- colnames(accuracyrollingwindow) <- c("MAE","MSE","RMSE","MAPE","MdRAE","MASE","MDA")
+      rownames(accuracytraditionalforecast) <- rownames(accuracyrollingwindow) <- 1:steps
+      for (i in 1:steps){
+        accuracytraditionalforecast[i,]<-accuracyforecast(y_prev,steps=i)
+        accuracyrollingwindow[i,]<-accuracyforecast(yr_prev,steps=i)
+      }
+      z$accuracyforecast<-accuracytraditionalforecast
+      z$accuracyrollingwindow<-accuracyrollingwindow
     }
   }
-  rownames(z$accuracyfitted) <-rownames(accuracy) <- c("Accuracy fitted")
-
+  
+  rownames(z$accuracyfitted) <-rownames(accuracy) <- c("Fitted accuracy")
+  
   diagnostic<-matrix(round(c(z$boxpierce,z$ljungbox,z$monti,z$jarquebera,z$andersondarling,z$arch,
                              z$p_boxpierce,z$p_ljungbox,z$p_monti,z$p_jarquebera,z$p_andersondarling,z$p_arch
   ),4), nrow=2, ncol=6, byrow=T)
@@ -1075,27 +1102,32 @@ EMV.mkarX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=NA,
   z$diagnostic=diagnostic
   if(print==T){
     print("MKSARMAX",quote=F)
-  print(z$coef.result,quote=F)
-  message("")
-  print(c("Log-likelihood =",round(z$loglik,4)),quote=F)
-  print(c("MAIC =",round(z$maic,4),"MBIC =",round(z$mbic,4)),quote=F)
-  print(c("Deviance =",round(z$deviance,4)," DF:",z$dof.dev,"Deviance* =",round(z$deviance.star,4)),quote=F)
-  message("")  
-  if(resid==1) {
-    print("Quantile residuals:",quote=F)
-  }
-  
-  if(resid==2) {
-    print("Deviance residuals:",quote=F)
-  }
-  print(summary(z$residual))
-  message("")
-  print(z$diagnostic)
-  message("")
-  print(z$accuracyfitted)
-  message("")
-  if(steps!=0 & validation==T){
-    print(z$accuracyforecast)}
+    print(z$coef.result,quote=F)
+    message("")
+    print(c("Log-likelihood =",round(z$loglik,4)),quote=F)
+    print(c("MAIC =",round(z$maic,4),"MBIC =",round(z$mbic,4)),quote=F)
+    print(c("Deviance =",round(z$deviance,4)," DF:",z$dof.dev,"Deviance* =",round(z$deviance.star,4)),quote=F)
+    message("")  
+    if(resid==1) {
+      print("Quantile residuals:",quote=F)
+    }
+    
+    if(resid==2) {
+      print("Deviance residuals:",quote=F)
+    }
+    print(summary(z$residual))
+    message("")
+    print(z$diagnostic)
+    message("")
+    print(z$accuracyfitted)
+    message("")
+    if(steps!=0 & validation==T){
+      print("Traditional forecast accuracy:",quote=F)
+      print(z$accuracyforecast)
+      message("")
+      print("Rolling window forecast accuracy:",quote=F)
+      print(z$accuracyrollingwindow)
+    }
   }
   if(check==TRUE){
     opt2 <- optim(reg, loglik, method = "BFGS", hessian = T, control = list(fnscale = -1))    
