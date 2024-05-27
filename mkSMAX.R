@@ -16,7 +16,7 @@ EMV.mkSMAX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=matr
   }
   exvar=as.matrix(exvar)
   k=if(is.matrix(exvar)){ncol(exvar)}else{1}
-  
+  if (k==1){exvar<- exvar[1:(n+steps)]}else{exvar<- exvar[1:(n+steps),]}
   X <- matrix(c(rep(1,(n+steps)),exvar), nrow=(n+steps), ncol=(k+1), byrow=F)
   ##funções de ligação
   linktemp <- substitute(link)
