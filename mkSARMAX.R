@@ -863,16 +863,16 @@ EMV.mkSARMAX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=ma
   ytofit<-ts(c(y[1:n]),start=start(y),frequency=frequency(y))
   #in-sample 1:m fit
   #como fit
-  etam <- c()
-  errorm=errorhat
-  for(i in m:1)
-  {
-    etam[i] <- X[i,1]*z$beta0 +X[i,2:ncol(X)]%*%as.matrix(z$beta)+ sum(PHI*(ynew[i+S*AR])-X[i+ar_ind,2:ncol(X)]%*%as.matrix(z$beta)) - sum(THETA*errorm[i+S*MA])
-    errorm[i] <- ynew[i]-etam[i] 
-  }
-  ym2 <- linkinv(etam[1:m])
-  z$fitm2=ym2
-  z$fit.all <- ts(c(ym2,muhat),start=start(y),frequency=frequency(y))
+  # etam <- c()
+  # errorm=errorhat
+  # for(i in m:1)
+  # {
+  #   etam[i] <- X[i,1]*z$beta0 +X[i,2:ncol(X)]%*%as.matrix(z$beta)+ sum(PHI*(ynew[i+S*AR])-X[i+ar_ind,2:ncol(X)]%*%as.matrix(z$beta)) - sum(THETA*errorm[i+S*MA])
+  #   errorm[i] <- ynew[i]-etam[i] 
+  # }
+  # ym2 <- linkinv(etam[1:m])
+  # z$fitm2=ym2
+  # z$fit.all <- ts(c(ym2,muhat),start=start(y),frequency=frequency(y))
   
   if(steps!=0){
     #### out of sample forecast

@@ -870,16 +870,16 @@ EMV.mkarmaX <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=mat
   
   #in-sample 1:m fit
   #como fit
-  etam <- c()
-  errorm=errorhat
-  for(i in m:1)
-  {
-    etam[i] <- X[i,1]*z$beta0 +X[i,2:ncol(X)]%*%as.matrix(z$beta)+ sum(phi*(ynew[i+ar])-X[i+ar,2:ncol(X)]%*%as.matrix(z$beta)) - sum(theta*errorm[i+ma])
-    errorm[i] <- ynew[i]-etam[i] 
-  }
-  ym2 <- linkinv(etam[1:m])
-  z$fitm2=ym2
-  z$fit.all <- ts(c(ym2,muhat),start=start(y),frequency=frequency(y))
+  # etam <- c()
+  # errorm=errorhat
+  # for(i in m:1)
+  # {
+  #   etam[i] <- X[i,1]*z$beta0 +X[i,2:ncol(X)]%*%as.matrix(z$beta)+ sum(phi*(ynew[i+ar])-X[i+ar,2:ncol(X)]%*%as.matrix(z$beta)) - sum(theta*errorm[i+ma])
+  #   errorm[i] <- ynew[i]-etam[i] 
+  # }
+  # ym2 <- linkinv(etam[1:m])
+  # z$fitm2=ym2
+  # z$fit.all <- ts(c(ym2,muhat),start=start(y),frequency=frequency(y))
   
   if(steps!=0){
     #### out of sample forecast

@@ -753,8 +753,7 @@ EMV.mkarma <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=matr
     
     for(i in 1:steps)
     {
-      ynew_prev[n+i] <- X_prev[n+i,]%*%as.matrix(z$beta0) + sum(z$phi*(ynew_prev[n+i-ar]#-X_prev[n+i-ar,]%*%as.matrix(z$beta0)
-      ) ) - sum(z$theta*errorhat[n+i-ma])
+      ynew_prev[n+i] <- X_prev[n+i,]%*%as.matrix(z$beta0) + sum(z$phi*(ynew_prev[n+i-ar]) ) - sum(z$theta*errorhat[n+i-ma])
       y_prev[n+i] <- linkinv(ynew_prev[n+i])
       errorhat[n+i] <- 0 # residuals on the original scale y-mu  
     }
@@ -762,6 +761,21 @@ EMV.mkarma <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=matr
     z$forecast <- ts(c(rep(NA,n),y_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
     
     fittedplusout_forecast <-  ts(c(rep(NA,m),muhat,y_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
+    
+    #### rolling window forecast
+    gy_prev <- c(rep(NA,n+steps))
+    gy<-linkfun(y)
+    yr_prev <- c(z$fitted,rep(NA,steps))
+    
+    for(i in 1:steps)
+    {
+      gy_prev[n+i] <- X_prev[n+i,1]*z$beta0  + sum(z$phi*(gy[n+i-ar]) ) - sum(z$theta*errorhat[n+i-ma])
+      yr_prev[n+i] <- linkinv(gy_prev[n+i])
+      errorhat[n+i] <- 0 # residuals on the original scale y-mu 
+    }
+    
+    z$rollingforecast <- ts(c(rep(NA,n),yr_prev[(n+1):(n+steps)]),start=start(y),frequency=frequency(y))
+    
   }
   
   ###########################
@@ -1009,54 +1023,67 @@ EMV.mkarma <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=matr
   z$p_friedman=friedman$Pval
   #if the null hipothesis is rejected at the 1% significance level then the series is considered to be seasonal
   
-  
   ########################################################################
   ########################   forecast analysis   ########################
   ########################################################################
   if(steps!=0){
     if(validation==T){
       ###START FORECAST error metrics
-      maef<-sum(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)]))/(steps)
-      
-      sqf<-rep(NA,steps)
-      
-      for(i in 1:steps)
-      {
-        sqf[i]<-(y[n+i]-y_prev[n+i])^2
-      }  
-      
-      #print((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])^2)
-      msef<-sum(sqf)/steps
-      
-      rmsef<-sqrt(msef)
-      
-      mapef<-sum(abs((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/y[(n+1):(n+steps)])*100)/steps
-      
-      MdRAEf<-median(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/abs(y[(n+1):(n+steps)]-y[(n+1-1):(n+steps-1)]))#seasonal, if not, -1 not -S, If our model’s forecast equals to the benchmark’s forecast then the result is 1. If the benchmarks forecast are better than ours then the result will be above > 1. If ours is better than it’s below 1.
-      
-      MAEnaivef<-sum(abs(y[(n+1+1):(n+steps)]-y[(n+1):(n+steps-1)]))/(steps-1)#seasonal, if not, -1 not -S
-      
-      MASEf<-maef/MAEnaivef #Its value greater than one (1) indicates the algorithm is performing poorly compared to the naïve forecast.
-      
-      MAEnaivef.star<-sum(abs(y[(n+1):(n+steps)]-y[(n+1-1):(n+steps-1)]))/steps
-      MASEf.star<-maef/MAEnaivef.star
-      
-      #Mean directional accuracy
-      sign.yf<-sign(y[(n+1):(n+steps)]-y[(n):(n+steps-1)])
-      sign.ff<-sign(y_prev[(n+1):(n+steps)]-y[(n):(n+steps-1)])
-      MDAf.cont<-0
-      for (i in 1:steps){   
-        if(sign.yf[i]==sign.ff[i]){MDAf.cont<-MDAf.cont+1}  
+      accuracyforecast<-function(y_prev,steps){
+        maef<-sum(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)]))/(steps)
+        
+        sqf<-rep(NA,steps)
+        
+        for(i in 1:steps)
+        {
+          sqf[i]<-(y[n+i]-y_prev[n+i])^2
+        }  
+        
+        #print((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])^2)
+        msef<-sum(sqf)/steps
+        
+        rmsef<-sqrt(msef)
+        
+        mapef<-sum(abs((y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/y[(n+1):(n+steps)])*100)/steps
+        
+        MdRAEf<-median(abs(y[(n+1):(n+steps)]-y_prev[(n+1):(n+steps)])/abs(y[(n+1):(n+steps)]-y[(n+1-1):(n+steps-1)]))#seasonal, if not, -1 not -S, If our model’s forecast equals to the benchmark’s forecast then the result is 1. If the benchmarks forecast are better than ours then the result will be above > 1. If ours is better than it’s below 1.
+        
+        MAEnaivef<-sum(abs(y[(n+1+1):(n+steps)]-y[(n+1):(n+steps-1)]))/(steps-1)#seasonal, if not, -1 not -S
+        
+        MASEf<-maef/MAEnaivef #Its value greater than one (1) indicates the algorithm is performing poorly compared to the naïve forecast.
+        
+        MAEnaivef.star<-sum(abs(y[(n+1):(n+steps)]-y[(n+1-1):(n+steps-1)]))/steps
+        MASEf.star<-maef/MAEnaivef.star
+        
+        #Mean directional accuracy
+        sign.yf<-sign(y[(n+1):(n+steps)]-y[(n):(n+steps-1)])
+        sign.ff<-sign(y_prev[(n+1):(n+steps)]-y[(n):(n+steps-1)])
+        MDAf.cont<-0
+        for (i in 1:steps){   
+          if(sign.yf[i]==sign.ff[i]){MDAf.cont<-MDAf.cont+1}  
+        }
+        
+        MDAf<-MDAf.cont/steps
+        
+        MASEf=MASEf.star
+        accuracyf<-matrix(round(c(maef,msef,rmsef,mapef,MdRAEf,MASEf,MDAf),4), nrow=1, ncol=7, byrow=T)
+        colnames(accuracyf) <- c("MAE","MSE","RMSE","MAPE","MdRAE","MASE","MDA")
+        rownames(accuracyf) <- c("Accuracy forecast")
+        return(accuracyf)
       }
-      
-      MDAf<-MDAf.cont/steps
-      
-      MASEf=MASEf.star
-      z$accuracyforecast<-accuracyf<-matrix(round(c(maef,msef,rmsef,mapef,MdRAEf,MASEf,MDAf),4), nrow=1, ncol=7, byrow=T)
-      colnames(z$accuracyforecast) <-colnames(accuracyf) <- c("MAE","MSE","RMSE","MAPE","MdRAE","MASE","MDA")
-      rownames(z$accuracyforecast) <-rownames(accuracyf) <- c("Accuracy forecast")
+      accuracytraditionalforecast<-accuracyrollingwindow<-matrix(rep(NA,7*steps),nrow=steps, ncol=7, byrow=T)
+      colnames(accuracytraditionalforecast) <- colnames(accuracyrollingwindow) <- c("MAE","MSE","RMSE","MAPE","MdRAE","MASE","MDA")
+      rownames(accuracytraditionalforecast) <- rownames(accuracyrollingwindow) <- 1:steps
+      for (i in 1:steps){
+        accuracytraditionalforecast[i,]<-accuracyforecast(y_prev,steps=i)
+        accuracyrollingwindow[i,]<-accuracyforecast(yr_prev,steps=i)
+      }
+      z$accuracyforecast<-accuracytraditionalforecast
+      z$accuracyrollingwindow<-accuracyrollingwindow
     }
   }
+  
+  rownames(z$accuracyfitted) <-rownames(accuracy) <- c("Fitted accuracy")
   
   diagnostic<-matrix(round(c(z$boxpierce,z$ljungbox,z$monti,z$jarquebera,z$andersondarling,z$arch,
                              z$p_boxpierce,z$p_ljungbox,z$p_monti,z$p_jarquebera,z$p_andersondarling,z$p_arch
@@ -1086,7 +1113,12 @@ EMV.mkarma <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=matr
     print(z$accuracyfitted)
     message("")
     if(steps!=0 & validation==T){
-      print(z$accuracyforecast)}
+      print("Traditional forecast accuracy:",quote=F)
+      print(z$accuracyforecast)
+      message("")
+      print("Rolling window forecast accuracy:",quote=F)
+      print(z$accuracyrollingwindow)
+    }
   }
   
   if(check==TRUE){
