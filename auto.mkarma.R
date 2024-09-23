@@ -41,9 +41,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:4), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-       # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]}
-      
+         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -204,9 +202,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         possible<-expand.grid(l)
         
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        
+         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -367,9 +363,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         possible<-expand.grid(l)
         
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        
+         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -531,9 +525,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:1), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        
+         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -686,7 +678,6 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
       #end seasonal models
     }else{#start non-seasonal models
       print(paste("Friedman Rank test. P-value=",friedman$Pval))
-      #print(paste("Modified QS test. P-value=",modifiedqs$Pval))
       print(paste("Excluding seasonal models on search for the best model."))
       n <- 2
       if (max.order==4){
@@ -694,9 +685,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         possible<-expand.grid(l)
         
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        print(models1)
+ 
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -833,8 +822,6 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         possible<-expand.grid(l)
         
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
@@ -972,8 +959,6 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         possible<-expand.grid(l)
         
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
@@ -1120,9 +1105,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:1), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        
+      
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -1271,11 +1254,8 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
       if (max.order==4){
         
         l <- rep(list(0:4), n)
-        possible<-expand.grid(l)#255 nmodels
+        possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        #print(bloco);print(models1)
         for (i in 1:nrow(models1)){#first step: 1-2-3-4
           order<-models1[i,]
           ar=unlist(order[1])
@@ -1362,13 +1342,11 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep2<-which(possible[,1]==2 | possible[,2]==2 | possible[,3]==2 | possible[,4]==2)
         models2<-possible[sep2,]
-        # nm=nrow(models2)%/%nblocos
-        # if(bloco==1){models2=models2[1:nm,]}else if(bloco==nblocos){models2=models2[(nm*(bloco-1)+1):nrow(models2),]}else{models2=models2[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models2)
-        
+          
         for (i in 1:nrow(models2)){#first step: 1-1,2-3-4
           order<-models2[i,]
           ar=unlist(order[1])
@@ -1462,12 +1440,10 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep3<-which(possible[,1]==3 | possible[,2]==3 | possible[,3]==3 | possible[,4]==3)
-        models3<-possible[sep3,]#175 models
-        # nm=nrow(models3)%/%nblocos
-        # if(bloco==1){models3=models3[1:nm,]}else if(bloco==nblocos){models3=models3[(nm*(bloco-1)+1):nrow(models3),]}else{models3=models3[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models3)
+        models3<-possible[sep3,]
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,2,3-4
           order<-models3[i,]
@@ -1562,7 +1538,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,3-4
           order<-models3[i,]
@@ -1657,7 +1633,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3)){#first step: 1-1,2-2,3-4
           order<-models3[i,]
           ar=unlist(order[1])
@@ -1751,7 +1727,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         sep3.2=which(models3[,1]==2 | models3[,2]==2 | models3[,3]==2 | models3[,4]==2)
         if(length(sep3.2)!=0){
         models3.2=models3[sep3.2,]      
@@ -1849,7 +1825,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3.2)){#first step: 1-2-1,2,3-4
           order<-models3.2[i,]
@@ -1944,9 +1920,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
-        
-     
+          }}
         
         for (i in 1:nrow(models3.2)){#first step: 1-2-2,3-4
           order<-models3.2[i,]
@@ -2039,14 +2013,303 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               tenth<-mod;
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }}
-          }}#ok
+          }}
         }
+        
+        l2 <- rep(list(0:2), n)
+        possible2<-expand.grid(l2)
+        for (i in 1:nrow(possible2)){
+          order<-possible2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=unlist(order[3])
+          MA=unlist(order[4])
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,2)}
+            if(ma==1){ma=c(1,2)}
+            if(AR==1){AR=c(1,2)}
+            if(MA==1){MA=c(1,2)}
+             mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        l3 <- rep(list(0:4), n)
+        possible3<-expand.grid(l3)
+        for (i in 1:nrow(possible3)){
+          order<-possible3[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=unlist(order[3])
+          MA=unlist(order[4])
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,3)}else if(ar==2){ar=c(2,3)} else if(ar==4){ar=c(1,2,3)}
+            if(ma==1){ma=c(1,3)}else if(ma==2){ma=c(2,3)} else if(ma==4){ma=c(1,2,3)}
+            if(AR==1){AR=c(1,3)}else if(AR==2){AR=c(2,3)} else if(AR==4){AR=c(1,2,3)}
+            if(MA==1){MA=c(1,3)}else if(MA==2){MA=c(2,3)} else if(MA==4){MA=c(1,2,3)}
+             mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        l4 <- rep(list(0:8), n)
+        possible4<-expand.grid(l4)
+        for (i in 1:nrow(possible4)){
+          order<-possible4[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=unlist(order[3])
+          MA=unlist(order[4])
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,4)}else if(ar==2){ar=c(2,4)}else if(ar==3){ar=c(3,4)}else if(ar==5){ar=c(1,2,4)}else if(ar==6){ar=c(1,3,4)}else if(ar==7){ar=c(2,3,4)}else if(ar==8){ar=c(1,2,3,4)}
+            if(ma==1){ma=c(1,4)}else if(ma==2){ma=c(2,4)}else if(ma==3){ma=c(3,4)}else if(ma==5){ma=c(1,2,4)}else if(ma==6){ma=c(1,3,4)}else if(ma==7){ma=c(2,3,4)}else if(ma==8){ma=c(1,2,3,4)}
+            if(AR==1){AR=c(1,4)}else if(AR==2){AR=c(2,4)}else if(AR==3){AR=c(3,4)}else if(AR==5){AR=c(1,2,4)}else if(AR==6){AR=c(1,3,4)}else if(AR==7){AR=c(2,3,4)}else if(AR==8){AR=c(1,2,3,4)}
+            if(MA==1){MA=c(1,4)}else if(MA==2){MA=c(2,4)}else if(MA==3){MA=c(3,4)}else if(MA==5){MA=c(1,2,4)}else if(MA==6){MA=c(1,3,4)}else if(MA==7){MA=c(2,3,4)}else if(MA==8){MA=c(1,2,3,4)}
+             mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA=");print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
         sep4<-which(possible[,1]==4 | possible[,2]==4| possible[,3]==4| possible[,4]==4)
         models4<-possible[sep4,]
-        # nm=nrow(models4)%/%nblocos
-        # if(bloco==1){models4=models4[1:nm,]}else if(bloco==nblocos){models4=models4[(nm*(bloco-1)+1):nrow(models4),]}else{models4=models4[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models4)
-        
-        #first step 1-2-3-1,4
+  
         for (i in 1:nrow(models4)){#first step 1-2-3-1,4
           order<-models4[i,]
           ar=unlist(order[1])
@@ -2140,7 +2403,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-2,4
         for (i in 1:nrow(models4)){#first step 1-2-3-2,4
           order<-models4[i,]
@@ -2235,7 +2498,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-3,4
           order<-models4[i,]
@@ -2330,7 +2593,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-1,2,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,2,4
           order<-models4[i,]
@@ -2425,7 +2688,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-1,3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,3,4
           order<-models4[i,]
@@ -2520,7 +2783,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-1,2,3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,2,3,4
           order<-models4[i,]
@@ -2615,7 +2878,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-2,3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-2,3,4
           order<-models4[i,]
@@ -2710,7 +2973,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep4.2=which(models4[,1]==2 | models4[,2]==2 | models4[,3]==2 | models4[,4]==2)
         if(length(sep4.2)!=0){
@@ -2810,7 +3073,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-2,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-2,4
           order<-models4.2[i,]
@@ -2905,7 +3168,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-3,4
           order<-models4.2[i,]
@@ -3000,7 +3263,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-1,2,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-1,2,4
           order<-models4.2[i,]
@@ -3095,7 +3358,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-1,3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-1,3,4
           order<-models4.2[i,]
@@ -3190,7 +3453,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-1,2,3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-1,2,3,4
           order<-models4.2[i,]
@@ -3285,7 +3548,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-2,3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-2,3,4
           order<-models4.2[i,]
@@ -3380,7 +3643,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         }
         sep4.3=which(models4[,1]==3 | models4[,2]==3 | models4[,3]==3 | models4[,4]==3)
         if(length(sep4.3)!=0){
@@ -3480,7 +3743,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-2,4
           order<-models4.3[i,]
@@ -3575,7 +3838,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-3,4
           order<-models4.3[i,]
@@ -3670,7 +3933,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-1,2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-1,2,4
           order<-models4.3[i,]
@@ -3765,7 +4028,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-1,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-1,3,4
           order<-models4.3[i,]
@@ -3860,7 +4123,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-1,2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-1,2,3,4
           order<-models4.3[i,]
@@ -3955,7 +4218,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-2,3,4
           order<-models4.3[i,]
@@ -4050,7 +4313,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         #first step 1-2-1,3-1,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,4
@@ -4146,7 +4409,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-2,4
           order<-models4.3[i,]
@@ -4241,7 +4504,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-3,4
           order<-models4.3[i,]
@@ -4336,7 +4599,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,2,4
           order<-models4.3[i,]
@@ -4431,7 +4694,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,3,4
           order<-models4.3[i,]
@@ -4526,7 +4789,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,2,3,4
           order<-models4.3[i,]
@@ -4621,7 +4884,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-2,3,4
           order<-models4.3[i,]
@@ -4716,7 +4979,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,4
           order<-models4.3[i,]
@@ -4811,7 +5074,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-2,4
           order<-models4.3[i,]
@@ -4906,7 +5169,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-3,4
           order<-models4.3[i,]
@@ -5001,7 +5264,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,2,4
           order<-models4.3[i,]
@@ -5096,7 +5359,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,3,4
           order<-models4.3[i,]
@@ -5191,7 +5454,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,2,3,4
           order<-models4.3[i,]
@@ -5286,7 +5549,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-2,3,4
           order<-models4.3[i,]
@@ -5381,7 +5644,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep4.3.2=which(models4.3[,1]==2 | models4.3[,2]==2 | models4.3[,3]==2 | models4.3[,4]==2)
         if(length(sep4.3.2)!=0){
@@ -5481,7 +5744,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,2,3-2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-2,4
           order<-models4.3.2[i,]
@@ -5576,7 +5839,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,2,3-3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-3,4
           order<-models4.3.2[i,]
@@ -5671,7 +5934,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,2,3-1,2,4
         for (i in 1:nrow(models4.3.2)){#first step  1-1,2-1,2,3-1,2,4
           order<-models4.3.2[i,]
@@ -5766,7 +6029,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,2,3-1,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-1,3,4
           order<-models4.3.2[i,]
@@ -5861,7 +6124,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,2,3-1,2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-1,2,3,4
           order<-models4.3.2[i,]
@@ -5956,7 +6219,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,2,3-2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-2,3,4
           order<-models4.3.2[i,]
@@ -6051,7 +6314,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-1,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,4
           order<-models4.3.2[i,]
@@ -6146,7 +6409,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-2,4
           order<-models4.3.2[i,]
@@ -6241,7 +6504,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-3,4
           order<-models4.3.2[i,]
@@ -6336,7 +6599,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-1,2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,2,4
           order<-models4.3.2[i,]
@@ -6431,7 +6694,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-1,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,3,4
           order<-models4.3.2[i,]
@@ -6526,7 +6789,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-1,2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,2,3,4
           order<-models4.3.2[i,]
@@ -6621,7 +6884,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-1,3-2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-2,3,4
           order<-models4.3.2[i,]
@@ -6716,7 +6979,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-1,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,4
           order<-models4.3.2[i,]
@@ -6811,7 +7074,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-2,4
           order<-models4.3.2[i,]
@@ -6906,7 +7169,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-3,4
           order<-models4.3.2[i,]
@@ -7001,7 +7264,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-1,2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,2,4
           order<-models4.3.2[i,]
@@ -7096,7 +7359,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-1,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,3,4
           order<-models4.3.2[i,]
@@ -7191,7 +7454,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-1,2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,2,3,4
           order<-models4.3.2[i,]
@@ -7286,7 +7549,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-2,3-2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-2,3,4
           order<-models4.3.2[i,]
@@ -7381,7 +7644,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         }
         }
         print("first model up to order 4");print(first$mbic)
@@ -7450,10 +7713,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:3), n)
         possible<-expand.grid(l)#255 nmodels
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        #print(bloco);print(models1)
-        for (i in 1:nrow(models1)){#first step: 1-2-3
+         for (i in 1:nrow(models1)){#first step: 1-2-3
           order<-models1[i,]
           ar=unlist(order[1])
           ma=unlist(order[2])
@@ -7539,13 +7799,11 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep2<-which(possible[,1]==2 | possible[,2]==2 | possible[,3]==2 | possible[,4]==2)
         models2<-possible[sep2,]#175 models
-        # nm=nrow(models2)%/%nblocos
-        # if(bloco==1){models2=models2[1:nm,]}else if(bloco==nblocos){models2=models2[(nm*(bloco-1)+1):nrow(models2),]}else{models2=models2[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models2)
-        
+       
         for (i in 1:nrow(models2)){#first step: 1-1,2-3
           order<-models2[i,]
           ar=unlist(order[1])
@@ -7637,13 +7895,11 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep3<-which(possible[,1]==3 | possible[,2]==3 | possible[,3]==3 | possible[,4]==3)
         models3<-possible[sep3,]
-        # nm=nrow(models3)%/%nblocos
-        # if(bloco==1){models3=models3[1:nm,]}else if(bloco==nblocos){models3=models3[(nm*(bloco-1)+1):nrow(models3),]}else{models3=models3[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models3)
-        
+         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,2,3
           order<-models3[i,]
           ar=unlist(order[1])
@@ -7735,7 +7991,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,3
           order<-models3[i,]
@@ -7828,7 +8084,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3)){#first step: 1-1,2-2,3
           order<-models3[i,]
           ar=unlist(order[1])
@@ -7920,7 +8176,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         sep3.2=which(models3[,1]==2 | models3[,2]==2 | models3[,3]==2 | models3[,4]==2)
         if(length(sep3.2)!=0){
         models3.2=models3[sep3.2,] 
@@ -8016,7 +8272,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3.2)){#first step: 1-2-1,2,3
           order<-models3.2[i,]
           ar=unlist(order[1])
@@ -8108,7 +8364,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3.2)){#first step: 1-2-2,3
           order<-models3.2[i,]
           ar=unlist(order[1])
@@ -8200,9 +8456,201 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         }
-       
+        l2 <- rep(list(0:2), n)
+        possible2<-expand.grid(l2)
+        for (i in 1:nrow(possible2)){
+          order<-possible2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=unlist(order[3])
+          MA=unlist(order[4])
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,2)}
+            if(ma==1){ma=c(1,2)}
+            if(AR==1){AR=c(1,2)}
+            if(MA==1){MA=c(1,2)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        l3 <- rep(list(0:4), n)
+        possible3<-expand.grid(l3)
+        for (i in 1:nrow(possible3)){
+          order<-possible3[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=unlist(order[3])
+          MA=unlist(order[4])
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,3)}else if(ar==2){ar=c(2,3)} else if(ar==4){ar=c(1,2,3)}
+            if(ma==1){ma=c(1,3)}else if(ma==2){ma=c(2,3)} else if(ma==4){ma=c(1,2,3)}
+            if(AR==1){AR=c(1,3)}else if(AR==2){AR=c(2,3)} else if(AR==4){AR=c(1,2,3)}
+            if(MA==1){MA=c(1,3)}else if(MA==2){MA=c(2,3)} else if(MA==4){MA=c(1,2,3)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
         print("first model up to order 3");print(first$mbic)
         print("ar="); print(first$ar)
         print("ma="); print(first$ma)
@@ -8268,10 +8716,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:2), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        #print(bloco);print(models1)
-        for (i in 1:nrow(models1)){#first level 1
+         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
           ma=unlist(order[2])
@@ -8357,15 +8802,11 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
         
         sep2<-which(possible[,1]==2 | possible[,2]==2 | possible[,3]==2 | possible[,4]==2)
-        models2<-possible[sep2,]#65 models to set c(1,2) order
-        # nm=nrow(models2)%/%nblocos
-        # if(bloco==1){models2=models2[1:nm,]}else if(bloco==nblocos){models2=models2[(nm*(bloco-1)+1):nrow(models2),]}else{models2=models2[(nm*(bloco-1)+1):(nm*bloco),]};
-        #print(bloco);
-        #print(models2)
-      
+        models2<-possible[sep2,]
+       
         for (i in 1:nrow(models2)){#first step 2
           order<-models2[i,]
           ar=unlist(order[1])
@@ -8455,7 +8896,106 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
             }
           }
-          }}#ok
+          }}
+        
+        l2 <- rep(list(0:2), n)
+        possible2<-expand.grid(l2)
+        for (i in 1:nrow(possible2)){
+          order<-possible2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=unlist(order[3])
+          MA=unlist(order[4])
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,2)}
+            if(ma==1){ma=c(1,2)}
+            if(AR==1){AR=c(1,2)}
+            if(MA==1){MA=c(1,2)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        
         print("first model up to order 2");print(first$mbic)
         print("ar="); print(first$ar)
         print("ma="); print(first$ma)
@@ -8522,10 +9062,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:1), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        #print(bloco);print(models1)
-        for (i in 1:nrow(models1)){#first level 1
+         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
           ma=unlist(order[2])
@@ -8612,7 +9149,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }
           }
           }
-        }#ok
+        }
         print("first model up to order 1");print(first$mbic)
         print("ar="); print(first$ar)
         print("ma="); print(first$ma)
@@ -8684,9 +9221,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:4), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]  
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        
+         
         for (i in 1:nrow(models1)){#first step: 1-2-3-4
           order<-models1[i,]
           ar=unlist(order[1])
@@ -8773,12 +9308,10 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         sep2<-which(possible[,1]==2 | possible[,2]==2)
         models2<-possible[sep2,]
-        # nm=nrow(models2)%/%nblocos
-        # if(bloco==1){models2=models2[1:nm,]}else if(bloco==nblocos){models2=models2[(nm*(bloco-1)+1):nrow(models2),]}else{models2=models2[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models2)
         
         for (i in 1:nrow(models2)){#first step: 1-1,2-3-4
           order<-models2[i,]
@@ -8869,13 +9402,192 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
+        sep2.2<-which(possible[,1]==2 & possible[,2]==2)
+        models2.2<-possible[sep2.2,]
+         
+        for (i in 1:nrow(models2.2)){
+          order<-models2.2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=c(0)
+          MA=c(0)
+          if (ar==2){ar=c(1,2)}
+          
+          mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+          
+          if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+            if (mod$mbic<first$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second=first;
+              first<-mod;                      
+              print("new first"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<second$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second<-mod;                  
+              print("new second"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<third$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third<-mod;
+              print("new third"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fourth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth<-mod;
+              print("new fourth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fifth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth<-mod;
+              print("new fifth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<sixth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth<-mod;
+              print("new sixth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<seventh$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh<-mod;
+              print("new seventh"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<eighth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth<-mod;
+              print("new eighth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<ninth$mbic){
+              tenth=ninth;
+              ninth<-mod;
+              print("new ninth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<tenth$mbic){
+              tenth<-mod;
+              print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
+            }
+          }
+          }}
+        for (i in 1:nrow(models2.2)){
+          order<-models2.2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=c(0)
+          MA=c(0)
+          if (ma==2){ma=c(1,2)}
+          
+          mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+          
+          if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+            if (mod$mbic<first$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second=first;
+              first<-mod;                      
+              print("new first"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<second$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second<-mod;                  
+              print("new second"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<third$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third<-mod;
+              print("new third"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fourth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth<-mod;
+              print("new fourth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fifth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth<-mod;
+              print("new fifth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<sixth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth<-mod;
+              print("new sixth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<seventh$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh<-mod;
+              print("new seventh"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<eighth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth<-mod;
+              print("new eighth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<ninth$mbic){
+              tenth=ninth;
+              ninth<-mod;
+              print("new ninth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<tenth$mbic){
+              tenth<-mod;
+              print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
+            }
+          }
+          }}
         
         sep3<-which(possible[,1]==3 | possible[,2]==3)
         models3<-possible[sep3,]
-        # nm=nrow(models3)%/%nblocos
-        # if(bloco==1){models3=models3[1:nm,]}else if(bloco==nblocos){models3=models3[(nm*(bloco-1)+1):nrow(models3),]}else{models3=models3[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models3)
-        
+       
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,2,3-4
           order<-models3[i,]
           ar=unlist(order[1])
@@ -8965,7 +9677,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,3-4
           order<-models3[i,]
@@ -9056,7 +9768,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3)){#first step: 1-1,2-2,3-4
           order<-models3[i,]
           ar=unlist(order[1])
@@ -9146,7 +9858,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         sep3.2=which(models3[,1]==2 | models3[,2]==2)
         if(length(sep3.2)!=0){
         models3.2=models3[sep3.2,]
@@ -9240,7 +9952,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3.2)){#first step: 1-2-1,2,3-4
           order<-models3.2[i,]
           ar=unlist(order[1])
@@ -9330,7 +10042,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         for (i in 1:nrow(models3.2)){#first step: 1-2-2,3-4
           order<-models3.2[i,]
           ar=unlist(order[1])
@@ -9420,13 +10132,11 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         }
        
         sep4<-which(possible[,1]==4 | possible[,2]==4)
         models4<-possible[sep4,]
-        # nm=nrow(models4)%/%nblocos
-        # if(bloco==1){models4=models4[1:nm,]}else if(bloco==nblocos){models4=models4[(nm*(bloco-1)+1):nrow(models4),]}else{models4=models4[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models4)
         
         #first step 1-2-3-1,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,4
@@ -9518,7 +10228,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-2,4
         for (i in 1:nrow(models4)){#first step 1-2-3-2,4
           order<-models4[i,]
@@ -9609,7 +10319,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-3,4
           order<-models4[i,]
@@ -9700,7 +10410,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-1,2,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,2,4
           order<-models4[i,]
@@ -9790,7 +10500,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-1,3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,3,4
           order<-models4[i,]
@@ -9881,7 +10591,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-1,2,3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-1,2,3,4
           order<-models4[i,]
@@ -9972,7 +10682,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-3-2,3,4
         for (i in 1:nrow(models4)){#first step 1-2-3-2,3,4
           order<-models4[i,]
@@ -10063,7 +10773,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         sep4.2=which(models4[,1]==2 | models4[,2]==2)
         if(length(sep4.2)!=0){
@@ -10159,7 +10869,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-2,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-2,4
           order<-models4.2[i,]
@@ -10250,7 +10960,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-3,4
           order<-models4.2[i,]
@@ -10341,7 +11051,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-1,2,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-1,2,4
           order<-models4.2[i,]
@@ -10432,7 +11142,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-1,3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-1,3,4
           order<-models4.2[i,]
@@ -10523,7 +11233,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-1,2,3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-1,2,3,4
           order<-models4.2[i,]
@@ -10614,7 +11324,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-1,2-3-2,3,4
         for (i in 1:nrow(models4.2)){#first step 1-1,2-3-2,3,4
           order<-models4.2[i,]
@@ -10705,7 +11415,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         }
         sep4.3=which(models4[,1]==3 | models4[,2]==3)
         if(length(sep4.3)!=0){
@@ -10801,7 +11511,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-2,4
           order<-models4.3[i,]
@@ -10892,7 +11602,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-3,4
           order<-models4.3[i,]
@@ -10983,7 +11693,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-1,2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-1,2,4
           order<-models4.3[i,]
@@ -11074,7 +11784,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-1,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-1,3,4
           order<-models4.3[i,]
@@ -11165,7 +11875,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-1,2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-1,2,3,4
           order<-models4.3[i,]
@@ -11256,7 +11966,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,2,3-2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,2,3-2,3,4
           order<-models4.3[i,]
@@ -11347,7 +12057,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,4
           order<-models4.3[i,]
@@ -11438,7 +12148,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-2,4
           order<-models4.3[i,]
@@ -11529,7 +12239,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-3,4
           order<-models4.3[i,]
@@ -11620,7 +12330,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,2,4
           order<-models4.3[i,]
@@ -11711,7 +12421,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,3,4
           order<-models4.3[i,]
@@ -11802,7 +12512,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-1,2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-1,2,3,4
           order<-models4.3[i,]
@@ -11893,7 +12603,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-1,3-2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-1,3-2,3,4
           order<-models4.3[i,]
@@ -11984,7 +12694,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,4
           order<-models4.3[i,]
@@ -12075,7 +12785,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-2,4
           order<-models4.3[i,]
@@ -12166,7 +12876,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-3,4
           order<-models4.3[i,]
@@ -12257,7 +12967,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,2,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,2,4
           order<-models4.3[i,]
@@ -12348,7 +13058,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,3,4
           order<-models4.3[i,]
@@ -12439,7 +13149,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-1,2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-1,2,3,4
           order<-models4.3[i,]
@@ -12530,7 +13240,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         #first step 1-2-2,3-2,3,4
         for (i in 1:nrow(models4.3)){#first step 1-2-2,3-2,3,4
           order<-models4.3[i,]
@@ -12621,7 +13331,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         sep4.3.2=which(models4.3[,1]==2 | models4.3[,2]==2)
         if(length(sep4.3.2)!=0){
         models4.3.2=models4.3[sep4.3.2,]#zero models
@@ -12650,7 +13360,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,2,3-2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-2,4
           order<-models4.3.2[i,]
@@ -12675,7 +13385,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         # #first step 1-1,2-1,2,3-3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-3,4
           order<-models4.3.2[i,]
@@ -12700,7 +13410,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,2,3-1,2,4
         for (i in 1:nrow(models4.3.2)){#first step  1-1,2-1,2,3-1,2,4
           order<-models4.3.2[i,]
@@ -12725,7 +13435,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,2,3-1,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-1,3,4
           order<-models4.3.2[i,]
@@ -12750,7 +13460,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,2,3-1,2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-1,2,3,4
           order<-models4.3.2[i,]
@@ -12775,7 +13485,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,2,3-2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,2,3-2,3,4
           order<-models4.3.2[i,]
@@ -12800,7 +13510,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-1,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,4
           order<-models4.3.2[i,]
@@ -12825,7 +13535,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-2,4
           order<-models4.3.2[i,]
@@ -12850,7 +13560,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-3,4
           order<-models4.3.2[i,]
@@ -12875,7 +13585,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-1,2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,2,4
           order<-models4.3.2[i,]
@@ -12900,7 +13610,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-1,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,3,4
           order<-models4.3.2[i,]
@@ -12925,7 +13635,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-1,2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-1,2,3,4
           order<-models4.3.2[i,]
@@ -12950,7 +13660,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-1,3-2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-1,3-2,3,4
           order<-models4.3.2[i,]
@@ -12975,7 +13685,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-1,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,4
           order<-models4.3.2[i,]
@@ -13000,7 +13710,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-2,4
           order<-models4.3.2[i,]
@@ -13025,7 +13735,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-3,4
           order<-models4.3.2[i,]
@@ -13050,7 +13760,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-1,2,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,2,4
           order<-models4.3.2[i,]
@@ -13075,7 +13785,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-1,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,3,4
           order<-models4.3.2[i,]
@@ -13100,7 +13810,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-1,2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-1,2,3,4
           order<-models4.3.2[i,]
@@ -13125,7 +13835,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         #first step 1-1,2-2,3-2,3,4
         for (i in 1:nrow(models4.3.2)){#first step 1-1,2-2,3-2,3,4
           order<-models4.3.2[i,]
@@ -13151,9 +13861,295 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
             }else if  (mod$mbic<third$mbic){
               third<-mod;print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)}
           }
-        }}#ok
+        }}
         }
         }
+        
+        l2 <- rep(list(0:2), n)
+        possible2<-expand.grid(l2)
+        for (i in 1:nrow(possible2)){
+          order<-possible2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=0
+          MA=0
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,2)}
+            if(ma==1){ma=c(1,2)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        l3 <- rep(list(0:4), n)
+        possible3<-expand.grid(l3)
+        for (i in 1:nrow(possible3)){
+          order<-possible3[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=0
+          MA=0
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,3)}else if(ar==2){ar=c(2,3)} else if(ar==4){ar=c(1,2,3)}
+            if(ma==1){ma=c(1,3)}else if(ma==2){ma=c(2,3)} else if(ma==4){ma=c(1,2,3)}
+           mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        l4 <- rep(list(0:8), n)
+        possible4<-expand.grid(l4)
+        for (i in 1:nrow(possible4)){
+          order<-possible4[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=0
+          MA=0
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,4)}else if(ar==2){ar=c(2,4)}else if(ar==3){ar=c(3,4)}else if(ar==5){ar=c(1,2,4)}else if(ar==6){ar=c(1,3,4)}else if(ar==7){ar=c(2,3,4)}else if(ar==8){ar=c(1,2,3,4)}
+            if(ma==1){ma=c(1,4)}else if(ma==2){ma=c(2,4)}else if(ma==3){ma=c(3,4)}else if(ma==5){ma=c(1,2,4)}else if(ma==6){ma=c(1,3,4)}else if(ma==7){ma=c(2,3,4)}else if(ma==8){ma=c(1,2,3,4)}
+           mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA=");print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
         print("first model up to order 4");print(first$mbic)
         print("ar="); print(first$ar)
         print("ma="); print(first$ma)
@@ -13200,8 +14196,6 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:3), n)
         possible<-expand.grid(l)#15 models
         models1<-possible[3:nrow(possible),]
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
        
         for (i in 1:nrow(models1)){#first step: 1-2-3
           order<-models1[i,]
@@ -13289,13 +14283,10 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         sep2<-which(possible[,1]==2 | possible[,2]==2)
         models2<-possible[sep2,]
-        # nm=nrow(models2)%/%nblocos
-        # if(bloco==1){models2=models2[1:nm,]}else if(bloco==nblocos){models2=models2[(nm*(bloco-1)+1):nrow(models2),]}else{models2=models2[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models2)
-
      
         for (i in 1:nrow(models2)){#first step: 1-1,2-3
           order<-models2[i,]
@@ -13386,12 +14377,191 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
+        sep2.2<-which(possible[,1]==2 & possible[,2]==2)
+        models2.2<-possible[sep2.2,]
+        
+        for (i in 1:nrow(models2.2)){
+          order<-models2.2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=c(0)
+          MA=c(0)
+          if (ar==2){ar=c(1,2)}
+          
+          mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+          
+          if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+            if (mod$mbic<first$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second=first;
+              first<-mod;                      
+              print("new first"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<second$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second<-mod;                  
+              print("new second"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<third$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third<-mod;
+              print("new third"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fourth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth<-mod;
+              print("new fourth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fifth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth<-mod;
+              print("new fifth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<sixth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth<-mod;
+              print("new sixth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<seventh$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh<-mod;
+              print("new seventh"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<eighth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth<-mod;
+              print("new eighth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<ninth$mbic){
+              tenth=ninth;
+              ninth<-mod;
+              print("new ninth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<tenth$mbic){
+              tenth<-mod;
+              print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
+            }
+          }
+          }}
+        for (i in 1:nrow(models2.2)){
+          order<-models2.2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=c(0)
+          MA=c(0)
+          if (ma==2){ma=c(1,2)}
+          
+          mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+          
+          if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+            if (mod$mbic<first$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second=first;
+              first<-mod;                      
+              print("new first"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<second$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second<-mod;                  
+              print("new second"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<third$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third<-mod;
+              print("new third"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fourth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth<-mod;
+              print("new fourth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fifth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth<-mod;
+              print("new fifth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<sixth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth<-mod;
+              print("new sixth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<seventh$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh<-mod;
+              print("new seventh"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<eighth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth<-mod;
+              print("new eighth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<ninth$mbic){
+              tenth=ninth;
+              ninth<-mod;
+              print("new ninth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<tenth$mbic){
+              tenth<-mod;
+              print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
+            }
+          }
+          }}
         
         sep3<-which(possible[,1]==3 | possible[,2]==3)
         models3<-possible[sep3,]
-        # nm=nrow(models3)%/%nblocos
-        # if(bloco==1){models3=models3[1:nm,]}else if(bloco==nblocos){models3=models3[(nm*(bloco-1)+1):nrow(models3),]}else{models3=models3[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models3)
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,2,3
           order<-models3[i,]
@@ -13482,7 +14652,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-1,3
           order<-models3[i,]
@@ -13571,7 +14741,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3)){#first step: 1-1,2-2,3
           order<-models3[i,]
@@ -13662,7 +14832,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         sep3.2=which(models3[,1]==2 | models3[,2]==2)
        
@@ -13758,7 +14928,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         for (i in 1:nrow(models3.2)){#first step: 1-2-1,2,3
           order<-models3.2[i,]
@@ -13849,7 +15019,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
        
         
         
@@ -13942,8 +15112,199 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         }
+        
+        l2 <- rep(list(0:2), n)
+        possible2<-expand.grid(l2)
+        for (i in 1:nrow(possible2)){
+          order<-possible2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=0
+          MA=0
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,2)}
+            if(ma==1){ma=c(1,2)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
+        l3 <- rep(list(0:4), n)
+        possible3<-expand.grid(l3)
+        for (i in 1:nrow(possible3)){
+          order<-possible3[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=0
+          MA=0
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,3)}else if(ar==2){ar=c(2,3)} else if(ar==4){ar=c(1,2,3)}
+            if(ma==1){ma=c(1,3)}else if(ma==2){ma=c(2,3)} else if(ma==4){ma=c(1,2,3)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
         print("first model up to order 3");print(first$mbic)
         print("ar="); print(first$ar)
         print("ma="); print(first$ma)
@@ -13989,8 +15350,6 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:2), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]#7 models
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
@@ -14079,12 +15438,10 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         sep2<-which(possible[,1]==2 | possible[,2]==2)
         models2<-possible[sep2,]#5 models to set c(1,2) order
-        # nm=nrow(models2)%/%nblocos
-        # if(bloco==1){models2=models2[1:nm,]}else if(bloco==nblocos){models2=models2[(nm*(bloco-1)+1):nrow(models2),]}else{models2=models2[(nm*(bloco-1)+1):(nm*bloco),]};         print(bloco);         print(models2)
         
         for (i in 1:nrow(models2)){#first step 2
           order<-models2[i,]
@@ -14175,7 +15532,285 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
+        
+        sep2.2<-which(possible[,1]==2 & possible[,2]==2)
+        models2.2<-possible[sep2.2,]
+          
+        for (i in 1:nrow(models2.2)){
+          order<-models2.2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=c(0)
+          MA=c(0)
+          if (ar==2){ar=c(1,2)}
+          
+          mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+          
+          if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+            if (mod$mbic<first$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second=first;
+              first<-mod;                      
+              print("new first"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<second$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second<-mod;                  
+              print("new second"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<third$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third<-mod;
+              print("new third"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fourth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth<-mod;
+              print("new fourth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fifth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth<-mod;
+              print("new fifth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<sixth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth<-mod;
+              print("new sixth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<seventh$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh<-mod;
+              print("new seventh"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<eighth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth<-mod;
+              print("new eighth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<ninth$mbic){
+              tenth=ninth;
+              ninth<-mod;
+              print("new ninth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<tenth$mbic){
+              tenth<-mod;
+              print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
+            }
+          }
+          }}
+        for (i in 1:nrow(models2.2)){
+          order<-models2.2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=c(0)
+          MA=c(0)
+          if (ma==2){ma=c(1,2)}
+          
+          mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+          
+          if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+            if (mod$mbic<first$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second=first;
+              first<-mod;                      
+              print("new first"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<second$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third=second;
+              second<-mod;                  
+              print("new second"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<third$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth=third;
+              third<-mod;
+              print("new third"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fourth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth=fourth;
+              fourth<-mod;
+              print("new fourth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<fifth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth=fifth;
+              fifth<-mod;
+              print("new fifth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<sixth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh=sixth;
+              sixth<-mod;
+              print("new sixth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<seventh$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth=seventh;
+              seventh<-mod;
+              print("new seventh"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<eighth$mbic){
+              tenth=ninth;
+              ninth=eighth;
+              eighth<-mod;
+              print("new eighth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<ninth$mbic){
+              tenth=ninth;
+              ninth<-mod;
+              print("new ninth"); print("ar="); print(ar); print("ma="); print(ma)
+            }else if  (mod$mbic<tenth$mbic){
+              tenth<-mod;
+              print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
+            }
+          }
+          }}
+        
+        l2 <- rep(list(0:2), n)
+        possible2<-expand.grid(l2)
+        for (i in 1:nrow(possible2)){
+          order<-possible2[i,]
+          ar=unlist(order[1])
+          ma=unlist(order[2])
+          AR=0
+          MA=0
+          
+          if(length(which(c(ar,ma,AR,MA)==0))<=2){
+            if(ar==1){ar=c(1,2)}
+            if(ma==1){ma=c(1,2)}
+            mod<-try( mkarma(y=y,ar=ar,ma=ma,AR=AR,MA=MA,exvar=exvar,steps=steps,graph=graph,print=print,S=S,resid=resid))
+            if (mod$RMC==0 ){if(all(mod$pvalues<=0.05)& mod$p_ljungbox>=0.05 & mod$p_jarquebera>=0.05 & mod$p_arch>=0.05 &all(mod$roots>=1)){
+              if (mod$mbic<first$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second=first;
+                first<-mod;                      
+                print("new first"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<second$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third=second;
+                second<-mod;                  
+                print("new second"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<third$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth=third;
+                third<-mod;
+                print("new third"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fourth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth=fourth;
+                fourth<-mod;
+                print("new fourth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<fifth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth=fifth;
+                fifth<-mod;
+                print("new fifth");print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<sixth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh=sixth;
+                sixth<-mod;
+                print("new sixth"); print("ar="); print(ar); print("ma="); print(ma); print("AR=");print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<seventh$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth=seventh;
+                seventh<-mod;
+                print("new seventh"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<eighth$mbic){
+                tenth=ninth;
+                ninth=eighth;
+                eighth<-mod;
+                print("new eighth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<ninth$mbic){
+                tenth=ninth;
+                ninth<-mod;
+                print("new ninth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }else if  (mod$mbic<tenth$mbic){
+                tenth<-mod;
+                print("new tenth"); print("ar="); print(ar); print("ma="); print(ma); print("AR="); print(AR); print("MA="); print(MA)
+              }
+            }
+            }
+          }
+        }
+        
         
         print("first model up to order 2");print(first$mbic)
         print("ar="); print(first$ar)
@@ -14222,9 +15857,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
         l <- rep(list(0:1), n)
         possible<-expand.grid(l)
         models1<-possible[3:nrow(possible),]#2 models
-        # nm=nrow(models1)%/%nblocos
-        # if(bloco==1){models1=models1[1:nm,]}else if(bloco==nblocos){models1=models1[(nm*(bloco-1)+1):nrow(models1),]}else{models1=models1[(nm*(bloco-1)+1):(nm*bloco),]} 
-        
+         
         for (i in 1:nrow(models1)){#first level 1
           order<-models1[i,]
           ar=unlist(order[1])
@@ -14311,7 +15944,7 @@ auto.mkarma<-function(y,steps=10,exvar=matrix(NA, nrow=1, ncol=1, byrow=F),max.o
               print("new tenth"); print("ar="); print(ar); print("ma="); print(ma)
             }
           }
-          }}#ok
+          }}
         
         print("first model up to order 1");print(first$mbic)
         print("ar="); print(first$ar)
