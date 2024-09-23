@@ -997,7 +997,7 @@ EMV.mkarmaSAR <- function(y,ar=c(0.0),ma=c(0.0),AR=c(0.0),MA=c(0.0),S=12,exvar=m
     
     for(i in 1:steps)
     {
-      gy_prev[n+i] <- X_prev[n+i,1]*z$beta0 + sum(ar_par*(gy[n+i-ar_ind]) ) - sum(ma_par*errorhat[n+i-ma_ind])
+      gy_prev[n+i] <- X_prev[n+i,1]*z$beta0 + sum(ar_par*(gy[n+i-ar_ind]) ) - sum(z$theta*errorhat[n+i-ma])
       yr_prev[n+i] <- linkinv(gy_prev[n+i])
       errorhat[n+i] <- 0 # residuals on the original scale y-mu 
     }
